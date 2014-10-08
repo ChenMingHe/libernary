@@ -15,19 +15,38 @@ import com.alipay.tushu.controller.converters.UserConverter;
 import com.alipay.tushu.controller.form.UserForm;
 import com.alipay.tushu.core.model.User;
 
-/**
- * @author yuanchen
- * 
- */
+/** 
+* 用户Controller
+* 
+* @author yuanchen 2014年10月8日 下午10:38:49 
+* @version  
+*/
 @Controller
 public class UserController {
-
+	
+	/** 
+	* @Fields userManager : 
+	*/ 
 	private UserManager userManager;
 	
+	/** 
+	* @Fields CREATE_RESULT : 结果页面
+	*/ 
 	private static final String CREATE_RESULT = "result.vm";
 	
+	/** 
+	* @Fields ERROR_PAGE : 错误页面
+	*/ 
 	private static final String ERROR_PAGE = "error.vm";
 
+	/** 
+	* @Description: 创建新用户
+	* 
+	* @param model
+	* @param form
+	* @return    
+	* @throws 
+	*/
 	@RequestMapping(value = "/user/createuser.json", method = RequestMethod.POST)
 	public String create(ModelMap model, @ModelAttribute("form") UserForm form) {
 		if (form == null) {
@@ -47,6 +66,7 @@ public class UserController {
 		return CREATE_RESULT;
 	}
 
+	// ~~ getter & setter
 	public void setUserManager(UserManager userManager) {
 		this.userManager = userManager;
 	}

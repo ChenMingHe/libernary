@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap >
+	<insert id = "TS-BOOK-INSERT">
+		insert into book (id, name, user_id, gmt_create, gmt_modified) values ('00000000001', '程序员的自我修养', '00000000001', now(), now())
+	</insert>
+</sqlMap>

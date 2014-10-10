@@ -39,8 +39,9 @@ public class LoginController {
 	* @throws 
 	*/
 	@RequestMapping(value = "/login.htm", method = RequestMethod.GET)
-	public String login() {
-		return null;
+	public String login(ModelMap model) {
+		model.addAttribute("UriContext", new UriContext());
+		return LOGIN_PAGE;
 	}
 	
 	/** 

@@ -16,5 +16,10 @@ public class UriContext {
 	/** 
 	* @Fields HOST_PAGE : 主页
 	*/ 
-	public String HOST_PAGE = "http://localost:8080";
+	private String hostName = "http://localhost:8080";
+
+	// ~~ getter & setter
+	public String getHostName() {
+		return hostName;
+	}
 }

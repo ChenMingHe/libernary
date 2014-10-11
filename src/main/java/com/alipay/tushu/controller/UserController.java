@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.alipay.tushu.biz.managers.UserManager;
 import com.alipay.tushu.controller.converters.UserConverter;
-import com.alipay.tushu.controller.form.UserForm;
+import com.alipay.tushu.controller.form.UserSigupForm;
 import com.alipay.tushu.core.model.User;
 
 /** 
@@ -48,7 +48,7 @@ public class UserController {
 	* @throws 
 	*/
 	@RequestMapping(value = "/user/createuser.json", method = RequestMethod.POST)
-	public String create(ModelMap model, @ModelAttribute("form") UserForm form) {
+	public String create(ModelMap model, @ModelAttribute("form") UserSigupForm form) {
 		if (form == null) {
 			model.addAttribute("error", "form error");
 			return ERROR_PAGE;

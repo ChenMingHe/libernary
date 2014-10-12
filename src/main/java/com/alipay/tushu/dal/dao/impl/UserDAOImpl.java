@@ -1,4 +1,4 @@
-/** 
+/**
  * tushu
  */
 package com.alipay.tushu.dal.dao.impl;
@@ -9,13 +9,17 @@ import com.alipay.tushu.dal.dao.UserDAO;
 import com.alipay.tushu.dal.dos.UserDO;
 
 /**
- * @author yuanchen
  * 
+ * 
+ * @author yuanchen 2014年10月11日 下午11:42:37
+ * @version
  */
 public class UserDAOImpl extends SqlMapClientDaoSupport implements UserDAO {
 
-	// @see
-	// com.alipay.tushu.dal.dao.UserDAO#create(com.alipay.tushu.dal.dos.UserDO)
+	/*
+	 * @see
+	 * com.alipay.tushu.dal.dao.UserDAO#create(com.alipay.tushu.dal.dos.UserDO)
+	 */
 	public String create(UserDO user) {
 		if (user == null) {
 			throw new IllegalArgumentException(

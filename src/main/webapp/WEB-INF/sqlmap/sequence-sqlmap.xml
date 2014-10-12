@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+
+<sqlMap>
+	<resultMap id="MS-SEQUENCE-DO-MAP" class="com.alipay.tushu.dal.dos.SequenceDO">
+		<result property="tbName" column="tb_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result property="id" column="id" javaType="int" jdbcType="INT" nullValue="0"/>
+	</resultMap>
+	
+	<insert id="MS-SEQUENCE-INSERT">
+		insert into sequence(tb_name, id) values (#id#, #tbName#);
+		<selectKey resultClass="int" keyProperty="id">
+			select last_insert_id() as id
+		</selectKey>
+	</insert>
+	
+</sqlMap>

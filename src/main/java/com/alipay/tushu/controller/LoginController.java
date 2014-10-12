@@ -72,7 +72,7 @@ public class LoginController {
 	 * @return
 	 * @throws
 	 */
-	@RequestMapping(value = "/sigup.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/sigup.htm", method = RequestMethod.POST)
 	public String sigupDoPost(ModelMap model,
 			@ModelAttribute("form") UserSigupForm form) {
 		User user = UserConverter.convertForm2BO(form);

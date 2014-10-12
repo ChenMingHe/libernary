@@ -1,4 +1,4 @@
-/** 
+/**
  * tushu
  */
 package com.alipay.tushu.core.services.impl;
@@ -13,14 +13,21 @@ import com.alipay.tushu.dal.dao.UserDAO;
 import com.alipay.tushu.dal.dos.UserDO;
 
 /**
- * @author yuanchen
  * 
+ * 
+ * @author yuanchen 2014年10月11日 下午11:40:34
+ * @version
  */
 public class UserServiceImpl implements UserService {
 
+	/**
+	 * @Fields userDAO :
+	 */
 	private UserDAO userDAO;
 
-	/** 事务模板 */
+	/**
+	 * @Fields transactionTemplate : 事务模板
+	 */
 	private TransactionTemplate transactionTemplate;
 
 	public String createUser(User user) throws CoreException {
@@ -33,6 +40,7 @@ public class UserServiceImpl implements UserService {
 		return userDAO.create(userDO);
 	}
 
+	// ~~ getter & setter
 	public void setUserDAO(UserDAO userDAO) {
 		this.userDAO = userDAO;
 	}

@@ -1,4 +1,4 @@
-/** 
+/**
  * tushu
  */
 package com.alipay.tushu.core.converters;
@@ -13,6 +13,12 @@ import com.alipay.tushu.dal.dos.UserDO;
  * 
  */
 public class UserConverter {
+
+	/**
+	 * @Fields IGNORE_PARAM : 忽略拷贝参数
+	 */
+	private static final String[] IGNORE_PARAM = new String[] { "type" };
+
 	/**
 	 * 将BO对象转换成DO对象
 	 * 
@@ -26,10 +32,10 @@ public class UserConverter {
 
 		UserDO userDO = new UserDO();
 
-		BeanUtils.copyProperties(user, userDO);
+		BeanUtils.copyProperties(user, userDO, IGNORE_PARAM);
 
-		if (user.getUserType() != null) {
-			userDO.setType(user.getUserType().getCode());
+		if (user.getType() != null) {
+			userDO.setType(user.getType().name());
 		}
 
 		return userDO;

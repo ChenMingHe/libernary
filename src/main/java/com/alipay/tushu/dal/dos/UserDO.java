@@ -1,4 +1,4 @@
-/** 
+/**
  * tushu
  */
 package com.alipay.tushu.dal.dos;
@@ -6,18 +6,30 @@ package com.alipay.tushu.dal.dos;
 import java.util.Date;
 
 /**
- * @author yuanchen
+ * UserDO
  * 
+ * @author yuanchen 2014年10月11日 下午11:44:22
+ * @version
  */
 public class UserDO {
+
+	/** 用户ID */
 	private String id;
+	/** 登录名 */
 	private String loginName;
+	/** 密钥 */
 	private String passwd;
+	/** 昵称 */
 	private String name;
-	private int type;
+	/** 类型 */
+	private String type;
+
 	private Date gmtCreate;
+
+	/** 修改时间 */
 	private Date gmtModified;
 
+	// ~~ getter & setter
 	public String getId() {
 		return id;
 	}
@@ -50,11 +62,11 @@ public class UserDO {
 		this.name = name;
 	}
 
-	public int getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 

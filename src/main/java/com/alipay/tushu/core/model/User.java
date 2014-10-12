@@ -15,7 +15,7 @@ public class User {
 	private String loginName;
 	private String passwd;
 	private String name;
-	private UserTypeEnum userType;
+	private UserTypeEnum type;
 	private Date gmtCreate;
 	private Date gmtModified;
 
@@ -51,12 +51,12 @@ public class User {
 		this.name = name;
 	}
 
-	public UserTypeEnum getUserType() {
-		return userType;
+	public UserTypeEnum getType() {
+		return type;
 	}
 
-	public void setUserType(UserTypeEnum userType) {
-		this.userType = userType;
+	public void setType(UserTypeEnum type) {
+		this.type = type;
 	}
 
 	public Date getGmtCreate() {

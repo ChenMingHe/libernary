@@ -1,28 +1,36 @@
 package com.alipay.tushu.core.model.enums;
 
-public enum UserTypeEnum {
-	STUDENT(1, "学生"), TEACHER(2, "教师"), ;
+import org.apache.commons.lang.StringUtils;
 
-	/** 状态码 */
-	private int code;
+/**
+ * 用户类型枚举
+ * 
+ * @author yuanchen 2014年10月12日 下午8:04:43
+ * @version
+ */
+public enum UserTypeEnum {
+	STUDENT("学生"), TEACHER("教师"), ;
+
 	/** 描述 */
 	private String desc;
 
-	private UserTypeEnum(int code, String desc) {
-		this.code = code;
+	private UserTypeEnum(String desc) {
 		this.desc = desc;
 	}
 
 	/**
-	 * 根据码获取枚举
+	 * 获取枚举
 	 * 
 	 * @param code
 	 * @return
 	 */
-	public static UserTypeEnum getEnumbyCode(int code) {
+	public static UserTypeEnum getbyName(String name) {
+		if (StringUtils.isEmpty(name)) {
+			return null;
+		}
 
 		for (UserTypeEnum value : values()) {
-			if (value.getCode() == code) {
+			if (StringUtils.equals(value.name(), name)) {
 				return value;
 			}
 		}
@@ -31,10 +39,6 @@ public enum UserTypeEnum {
 	}
 
 	// ~~ getter & setter
-	public int getCode() {
-		return code;
-	}
-
 	public String getDesc() {
 		return desc;
 	}

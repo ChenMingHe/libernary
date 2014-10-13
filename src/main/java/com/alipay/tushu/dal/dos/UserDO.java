@@ -18,18 +18,25 @@ public class UserDO {
 	/** 登录名 */
 	private String loginName;
 	/** 密钥 */
-	private String passwd;
+	private String password;
 	/** 昵称 */
 	private String name;
 	/** 类型 */
 	private String type;
-
+	/** 创建时间 */
 	private Date gmtCreate;
-
 	/** 修改时间 */
 	private Date gmtModified;
 
 	// ~~ getter & setter
+
+	@Override
+	public String toString() {
+		String s = "id, loginName, password, name, type, gmtCreate, gmtModified = " + id + loginName + password + name
+				+ type + gmtCreate + gmtModified;
+		return s;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -46,12 +53,12 @@ public class UserDO {
 		this.loginName = loginName;
 	}
 
-	public String getPasswd() {
-		return passwd;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getName() {

@@ -47,7 +47,7 @@ public class UserController {
 	 * @return
 	 * @throws
 	 */
-	@RequestMapping(value = "/user/createuser.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "/createuser.htm", method = RequestMethod.POST)
 	public String create(ModelMap model, @ModelAttribute("form") UserSigupForm form) {
 		if (form == null) {
 			model.addAttribute("error", "form error");
@@ -58,9 +58,9 @@ public class UserController {
 		String result = userManager.createUser(user);
 
 		if (StringUtils.isNotBlank(result)) {
-			model.addAttribute("success", true);
+			model.addAttribute("success", "成功");
 		} else {
-			model.addAttribute("success", false);
+			model.addAttribute("success", "失败");
 		}
 
 		return CREATE_RESULT;

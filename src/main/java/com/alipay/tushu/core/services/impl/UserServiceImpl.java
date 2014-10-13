@@ -38,12 +38,15 @@ public class UserServiceImpl implements UserService {
 			throw new CoreException();
 		}
 
-		String userId = sequenceService.genernate(TableName.USER);
 		Date currentTime = sequenceService.genernateSystemTime();
+		String userId = sequenceService.genernate(TableName.USER);
 		UserDO userDO = UserConverter.convertBO2DO(user);
 		userDO.setId(userId);
 		userDO.setGmtCreate(currentTime);
 		userDO.setGmtModified(currentTime);
+
+		System.out.println("user  " + user);
+		System.out.println("user do " + userDO);
 
 		return userDAO.create(userDO);
 	}

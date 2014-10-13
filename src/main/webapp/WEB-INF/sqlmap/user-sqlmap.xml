@@ -4,6 +4,6 @@ sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.
 <sqlMap >
 	
 	<insert id="TS-USER-INSERT">
-		insert into user (id, login_name, passwd, name, type, gmt_create, gmt_modified) values (#id#, #loginName#, #passwd#, #name#, #type#, #gmtCreate#, #gmtModified#)
+		insert into user (id, login_name, passwd, name, type, gmt_create, gmt_modified) values (#id#, #loginName#, #password#, #name#, #type#, #gmtCreate#, #gmtModified#)
 	</insert>
 </sqlMap>

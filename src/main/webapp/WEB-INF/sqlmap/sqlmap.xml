@@ -5,8 +5,11 @@ sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibat
 	<settings cacheModelsEnabled="true" enhancementEnabled="true"
 		lazyLoadingEnabled="true" errorTracingEnabled="true" maxRequests="32"
 		maxSessions="10" maxTransactions="5" useStatementNamespaces="false" />
-	
-	
+
+
+	<!-- sqlmap list -->
 	<sqlMap resource="/book-sqlmap.xml" />
-	
+	<sqlMap resource="/user-sqlmap.xml" />
+	<sqlMap resource="/sequence-sqlmap.xml" />
+
 </sqlMapConfig>

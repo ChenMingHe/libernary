@@ -1,7 +1,21 @@
 $UriContext.hostName
 
-<form name="input" action="html_form_action.asp" method="get">
-	<p>用户名: <input type="text" name="loginName" /></p>
-	<p>密码: <input type="text" name="password" /></p>
+<form name="input" action="/libernary/createuser.htm" method="post">
+	<p>
+		登录名: <input type="text" name="loginName" />
+	</p>
+	<p>
+		用户名: <input type="text" name="name" />
+	</p>
+	<p>
+		密码: <input type="text" name="password" />
+	</p>
+	<p>
+		<input type="radio" name="userType" value="STUDENT" /> 学生
+	</p>
+	<br />
+	<p>
+		<input type="radio" name="userType" value="TEACHER" /> 教师
+	</p>
 	<input type="submit" value="注册" />
 </form>

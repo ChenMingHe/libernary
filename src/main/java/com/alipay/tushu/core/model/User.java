@@ -11,14 +11,23 @@ import com.alipay.tushu.core.model.enums.UserTypeEnum;
  * 
  */
 public class User {
+
+	/** 用户ID */
 	private String id;
+	/** 登录名 */
 	private String loginName;
-	private String passwd;
+	/** 密钥 */
+	private String password;
+	/** 昵称 */
 	private String name;
+	/** 类型 */
 	private UserTypeEnum type;
+	/** 创建时间 */
 	private Date gmtCreate;
+	/** 修改时间 */
 	private Date gmtModified;
 
+	// ~~ getter & setter
 	public String getId() {
 		return id;
 	}
@@ -35,12 +44,12 @@ public class User {
 		this.loginName = loginName;
 	}
 
-	public String getPasswd() {
-		return passwd;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getName() {
@@ -75,4 +84,10 @@ public class User {
 		this.gmtModified = gmtModified;
 	}
 
+	@Override
+	public String toString() {
+		String s = "id, loginName, password, name, type, gmtCreate, gmtModified = " + id + loginName + password + name
+				+ type + gmtCreate + gmtModified;
+		return s;
+	}
 }

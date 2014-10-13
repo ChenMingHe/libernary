@@ -8,14 +8,9 @@ package com.alipay.tushu.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.alipay.tushu.biz.managers.UserManager;
-import com.alipay.tushu.controller.converters.UserConverter;
-import com.alipay.tushu.controller.form.UserSigupForm;
-import com.alipay.tushu.core.model.User;
 import com.alipay.tushu.utils.UriContext;
 
 /**
@@ -26,11 +21,6 @@ import com.alipay.tushu.utils.UriContext;
  */
 @Controller
 public class LoginController {
-
-	/**
-	 * @Fields userManager : 用户管理器
-	 */
-	private UserManager userManager;
 
 	/**
 	 * @Fields LOGIN_PAGE : 登陆页面
@@ -64,27 +54,6 @@ public class LoginController {
 	public String sigupDoGet(ModelMap model) {
 		model.addAttribute("UriContext", new UriContext());
 		return SIGUP_PAGE;
-	}
-
-	/**
-	 * @Description: 注册页面
-	 * 
-	 * @return
-	 * @throws
-	 */
-	@RequestMapping(value = "/sigup.htm", method = RequestMethod.POST)
-	public String sigupDoPost(ModelMap model,
-			@ModelAttribute("form") UserSigupForm form) {
-		User user = UserConverter.convertForm2BO(form);
-		String result = userManager.createUser(user);
-		model.addAttribute("result", result);
-		model.addAttribute("UriContext", new UriContext());
-		return SIGUP_PAGE;
-	}
-
-	// ~~ getter & setter
-	public void setUserManager(UserManager userManager) {
-		this.userManager = userManager;
 	}
 
 }

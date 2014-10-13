@@ -24,7 +24,7 @@ create table user (
   login_name varchar(100) not null comment '登录名',
   passwd varchar(100) not null comment '密钥',
   name varchar(100) not null comment '用户名', 
-  type int not null comment '用户类型, 1-学生',
+  type varchar(30) not null comment '用户类型',
   gmt_create datetime not null comment '创建时间',
   gmt_modified datetime comment '修改时间',
 

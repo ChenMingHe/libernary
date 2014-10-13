@@ -9,4 +9,10 @@
 	<bean name="bookService"
 		class="com.alipay.tushu.core.services.impl.BookServiceImpl">
 	</bean>
+	<bean id="sequenceService"
+		class="com.alipay.tushu.core.services.impl.SequenceServiceImpl">
+	</bean>
+	<bean id="userService"
+		class="com.alipay.tushu.core.services.impl.UserServiceImpl">
+	</bean>
 </beans>

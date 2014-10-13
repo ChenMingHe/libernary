@@ -8,4 +8,10 @@
 	<bean name="bookDAO"
 		class="com.alipay.tushu.dal.dao.impl.BookDAOImpl">
 	</bean>
+	<bean id="sequenceDAO"
+		class="com.alipay.tushu.dal.dao.impl.SequenceDAOImpl">
+	</bean>
+	<bean id="userDAO"
+		class="com.alipay.tushu.dal.dao.impl.UserDAOImpl">
+	</bean>
 </beans>

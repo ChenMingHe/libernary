@@ -9,4 +9,7 @@
 	<bean name="bookManager"
 		class="com.alipay.tushu.biz.managers.impl.BookManagerImpl">
 	</bean>
+	<bean id="userManager"
+		class="com.alipay.tushu.biz.managers.impl.UserManagerImpl">
+	</bean>
 </beans>

@@ -1,6 +1,6 @@
 $UriContext.hostName
 
-<form name="input" action="/libernary/createuser.htm" method="post">
+<form name="input" action="/libernary/users/create" method="post">
 	<p>
 		登录名: <input type="text" name="loginName" />
 	</p>

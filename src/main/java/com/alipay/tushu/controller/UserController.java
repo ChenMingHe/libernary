@@ -4,6 +4,7 @@
 package com.alipay.tushu.controller;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,6 +15,7 @@ import com.alipay.tushu.biz.managers.UserManager;
 import com.alipay.tushu.controller.converters.UserConverter;
 import com.alipay.tushu.controller.form.UserSigupForm;
 import com.alipay.tushu.core.model.User;
+import com.alipay.tushu.utils.URLConstants;
 
 /**
  * 用户Controller
@@ -22,22 +24,19 @@ import com.alipay.tushu.core.model.User;
  * @version
  */
 @Controller
+@RequestMapping(value = URLConstants.USER)
 public class UserController {
 
-	/**
-	 * @Fields userManager :
-	 */
+	/** 用户管理 */
 	private UserManager userManager;
 
-	/**
-	 * @Fields CREATE_RESULT : 结果页面
-	 */
+	/** 结果页面 */
 	private static final String CREATE_RESULT = "result.vm";
 
-	/**
-	 * @Fields ERROR_PAGE : 错误页面
-	 */
+	/** 错误页面 */
 	private static final String ERROR_PAGE = "error.vm";
+
+	private HttpMessageConverter jsonConverter;
 
 	/**
 	 * @Description: 创建新用户
@@ -47,7 +46,7 @@ public class UserController {
 	 * @return
 	 * @throws
 	 */
-	@RequestMapping(value = "/createuser.htm", method = RequestMethod.POST)
+	@RequestMapping(value = URLConstants.CREATE, method = RequestMethod.POST)
 	public String create(ModelMap model, @ModelAttribute("form") UserSigupForm form) {
 		if (form == null) {
 			model.addAttribute("error", "form error");
@@ -56,6 +55,8 @@ public class UserController {
 
 		User user = UserConverter.convertForm2BO(form);
 		String result = userManager.createUser(user);
+
+		System.out.println(user);
 
 		if (StringUtils.isNotBlank(result)) {
 			model.addAttribute("success", "成功");

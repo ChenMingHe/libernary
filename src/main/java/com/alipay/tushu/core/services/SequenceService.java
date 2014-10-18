@@ -15,6 +15,25 @@ import java.util.Date;
  * @version
  */
 public interface SequenceService {
+
+	/**
+	 * 表名
+	 * 
+	 * @author yuanchen 2014年10月12日 下午10:00:07
+	 * @version SequenceService
+	 */
+	public enum TableName {
+		USER,
+		INTEREST_GROUP,
+		USER_INTEREST_GROUP,
+		BOOK,
+		BOOK_ITEM,
+		BOOK_CATEGORY,
+		BOOK_STORE,
+		BOOK_ORDER,
+		LIBERNARY,
+	}
+
 	/**
 	 * sequence 生成策略
 	 * 
@@ -49,16 +68,6 @@ public interface SequenceService {
 			return padString;
 		}
 
-	}
-
-	/**
-	 * 表名
-	 * 
-	 * @author yuanchen 2014年10月12日 下午10:00:07
-	 * @version SequenceService
-	 */
-	public enum TableName {
-		USER,
 	}
 
 	/**

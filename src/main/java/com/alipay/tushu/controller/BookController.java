@@ -12,15 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.alipay.tushu.common.resps.CommonResp;
 import com.alipay.tushu.core.model.Book;
 import com.alipay.tushu.utils.CallBackHandler;
-import com.alipay.tushu.utils.HandleTemplate;
 import com.alipay.tushu.utils.URLConstants;
 
 @Controller
 @SuppressWarnings("unchecked")
 @RequestMapping(URLConstants.BOOK)
-public class BookController {
-	/** 统一处理模板 */
-	private HandleTemplate handleTemplate;
+public class BookController extends BaseController {
 
 	@RequestMapping(value = "/{bookId}", method = RequestMethod.GET)
 	public void findBooks(ModelMap model, HttpServletRequest request, HttpServletResponse response,
@@ -34,10 +31,4 @@ public class BookController {
 			}
 		});
 	}
-
-	// ~~ getter & setter
-	public void setHandleTemplate(HandleTemplate handleTemplate) {
-		this.handleTemplate = handleTemplate;
-	}
-
 }

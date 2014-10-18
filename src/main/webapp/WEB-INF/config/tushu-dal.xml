@@ -14,4 +14,25 @@
 	<bean id="userDAO"
 		class="com.alipay.tushu.dal.dao.impl.UserDAOImpl">
 	</bean>
+	<bean id="bookCategoryDAO"
+		class="com.alipay.tushu.dal.dao.impl.BookCategoryDAOImpl">
+	</bean>
+	<bean id="bookItemDAO"
+		class="com.alipay.tushu.dal.dao.impl.BookItemDAOImpl">
+	</bean>
+	<bean id="bookOrderDAO"
+		class="com.alipay.tushu.dal.dao.impl.BookOrderDAOImpl">
+	</bean>
+	<bean id="bookStoreDAO"
+		class="com.alipay.tushu.dal.dao.impl.BookStoreDAOImpl">
+	</bean>
+	<bean id="interestGroupDAO"
+		class="com.alipay.tushu.dal.dao.impl.InterestGroupDAOImpl">
+	</bean>
+	<bean id="libernaryDAO"
+		class="com.alipay.tushu.dal.dao.impl.LibernaryDAOImpl">
+	</bean>
+	<bean id="userInterestGroupDAO"
+		class="com.alipay.tushu.dal.dao.impl.UserInterestGroupDAOImpl">
+	</bean>
 </beans>

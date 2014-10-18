@@ -3,17 +3,20 @@
  */
 package com.alipay.tushu.controller;
 
-import org.apache.commons.lang.StringUtils;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.alipay.tushu.biz.managers.UserManager;
+import com.alipay.tushu.common.resps.CommonResp;
 import com.alipay.tushu.controller.form.UserSigupForm;
 import com.alipay.tushu.core.converters.UserConverter;
 import com.alipay.tushu.core.model.User;
+import com.alipay.tushu.utils.CallBackHandler;
 import com.alipay.tushu.utils.URLConstants;
 
 /**
@@ -24,17 +27,8 @@ import com.alipay.tushu.utils.URLConstants;
  */
 @Controller
 @RequestMapping(value = URLConstants.USER)
-public class UserController {
-
-	/** 用户管理 */
-	private UserManager userManager;
-
-	/** 结果页面 */
-	private static final String CREATE_RESULT = "result.vm";
-
-	/** 错误页面 */
-	private static final String ERROR_PAGE = "error.vm";
-
+@SuppressWarnings("unchecked")
+public class UserController extends BaseController {
 
 	/**
 	 * @Description: 创建新用户
@@ -45,28 +39,17 @@ public class UserController {
 	 * @throws
 	 */
 	@RequestMapping(value = URLConstants.CREATE, method = RequestMethod.POST)
-	public String create(ModelMap model, @ModelAttribute("form") UserSigupForm form) {
-		if (form == null) {
-			model.addAttribute("error", "form error");
-			return ERROR_PAGE;
-		}
+	public void create(ModelMap model, HttpServletRequest request, HttpServletResponse response,
+			final @ModelAttribute("form") UserSigupForm form) {
 
-		User user = UserConverter.convertForm2BO(form);
-		String result = userManager.createUser(user);
-
-		System.out.println(user);
-
-		if (StringUtils.isNotBlank(result)) {
-			model.addAttribute("success", "成功");
-		} else {
-			model.addAttribute("success", "失败");
-		}
-
-		return CREATE_RESULT;
+		handleTemplate.process(request, response, model, new CallBackHandler() {
+			@Override
+			public CommonResp<String> handle() throws Exception {
+				User user = UserConverter.convertForm2BO(form);
+				String result = userManager.createUser(user);
+				return new CommonResp<String>(result, true);
+			}
+		});
 	}
 
-	// ~~ getter & setter
-	public void setUserManager(UserManager userManager) {
-		this.userManager = userManager;
-	}
 }

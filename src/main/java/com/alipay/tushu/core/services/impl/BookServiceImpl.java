@@ -9,7 +9,7 @@ import com.alipay.tushu.core.services.BookService;
 import com.alipay.tushu.dal.dao.BookDAO;
 
 @Service
-public class BookServiceImpl implements BookService {
+public class BookServiceImpl extends BaseService implements BookService {
 
 	private BookDAO bookDAO;
 

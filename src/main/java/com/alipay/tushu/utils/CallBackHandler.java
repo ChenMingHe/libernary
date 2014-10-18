@@ -10,8 +10,8 @@ import java.util.List;
 
 import org.springframework.ui.ModelMap;
 
-import com.alipay.tushu.common.CommonResp;
-import com.alipay.tushu.common.PaginationResp;
+import com.alipay.tushu.common.resps.CommonResp;
+import com.alipay.tushu.common.resps.PaginationResp;
 
 /**
  * 统一处理模板

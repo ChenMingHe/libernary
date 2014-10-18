@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.alipay.tushu.common.CommonResp;
+import com.alipay.tushu.common.resps.CommonResp;
 import com.alipay.tushu.core.model.Book;
 import com.alipay.tushu.utils.CallBackHandler;
 import com.alipay.tushu.utils.HandleTemplate;

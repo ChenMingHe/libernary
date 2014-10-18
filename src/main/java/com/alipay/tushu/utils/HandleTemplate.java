@@ -20,7 +20,8 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.ui.ModelMap;
 
-import com.alipay.tushu.common.CommonResp;
+import com.alipay.tushu.common.exceptions.BaseException;
+import com.alipay.tushu.common.resps.CommonResp;
 
 /**
  * 统一处理模板
@@ -56,8 +57,9 @@ public class HandleTemplate {
 			} else {
 				jsonResult = callback.onFailed(serviceResult, model);
 			}
+		} catch (BaseException e) {
+			// TODO
 		} catch (Throwable e) {
-			logger.error("", e);
 			jsonResult = callback.onException(serviceResult, model);
 		} finally {
 			writeJsonResult(request, response, jsonResult);

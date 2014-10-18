@@ -4,9 +4,11 @@
  * @date 2014年10月15日 下午8:55:48
  * Copyright (c) 2014, uestc All Rights Reserved. version V1.0
  */
-package com.alipay.tushu.common;
+package com.alipay.tushu.common.resps;
 
 import java.util.List;
+
+import com.alipay.tushu.common.errors.ErrorCode;
 
 /**
  * 

@@ -9,14 +9,15 @@ import org.apache.commons.lang.StringUtils;
  * @version
  */
 public enum UserTypeEnum {
-	STUDENT("学生"), TEACHER("教师"), ;
+	STUDENT("学生"),
+	TEACHER("教师"),
+	ADMIN("管理员"),
+	;
 
 	/** 描述 */
 	private String desc;
 
-	private UserTypeEnum(String desc) {
-		this.desc = desc;
-	}
+
 
 	/**
 	 * 获取枚举
@@ -24,7 +25,7 @@ public enum UserTypeEnum {
 	 * @param code
 	 * @return
 	 */
-	public static UserTypeEnum getbyName(String name) {
+	public static UserTypeEnum getTypeByName(String name) {
 		if (StringUtils.isEmpty(name)) {
 			return null;
 		}
@@ -36,6 +37,11 @@ public enum UserTypeEnum {
 		}
 
 		return null;
+	}
+
+	// ~~ Constructer
+	private UserTypeEnum(String desc) {
+		this.desc = desc;
 	}
 
 	// ~~ getter & setter

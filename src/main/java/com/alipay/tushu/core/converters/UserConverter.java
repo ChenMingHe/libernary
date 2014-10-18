@@ -5,7 +5,9 @@ package com.alipay.tushu.core.converters;
 
 import org.springframework.beans.BeanUtils;
 
+import com.alipay.tushu.controller.form.UserSigupForm;
 import com.alipay.tushu.core.model.User;
+import com.alipay.tushu.core.model.enums.UserTypeEnum;
 import com.alipay.tushu.dal.dos.UserDO;
 
 /**
@@ -39,5 +41,25 @@ public class UserConverter {
 		}
 
 		return userDO;
+	}
+
+	/**
+	 * @Description: Form -》 BO
+	 * 
+	 * @param form
+	 * @return
+	 * @throws
+	 */
+	public static User convertForm2BO(UserSigupForm form) {
+		if (form == null) {
+			return null;
+		}
+
+		User user = new User();
+		BeanUtils.copyProperties(form, user);
+
+		user.setType(UserTypeEnum.getTypeByName(form.getUserType()));
+
+		return user;
 	}
 }

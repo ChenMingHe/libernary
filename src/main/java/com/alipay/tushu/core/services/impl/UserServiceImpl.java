@@ -8,7 +8,6 @@ import java.util.Date;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import com.alipay.tushu.core.converters.UserConverter;
-import com.alipay.tushu.core.converters.exceptions.CoreException;
 import com.alipay.tushu.core.model.User;
 import com.alipay.tushu.core.services.SequenceService;
 import com.alipay.tushu.core.services.SequenceService.TableName;
@@ -33,20 +32,13 @@ public class UserServiceImpl implements UserService {
 	/** 事务模板 */
 	private TransactionTemplate transactionTemplate;
 
-	public String createUser(User user) throws CoreException {
-		if (user == null) {
-			throw new CoreException();
-		}
-
+	public String createUser(User user) {
 		Date currentTime = sequenceService.genernateSystemTime();
 		String userId = sequenceService.genernate(TableName.USER);
 		UserDO userDO = UserConverter.convertBO2DO(user);
 		userDO.setId(userId);
 		userDO.setGmtCreate(currentTime);
 		userDO.setGmtModified(currentTime);
-
-		System.out.println("user  " + user);
-		System.out.println("user do " + userDO);
 
 		return userDAO.create(userDO);
 	}

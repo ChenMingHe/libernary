@@ -4,7 +4,6 @@
 package com.alipay.tushu.controller;
 
 import org.apache.commons.lang.StringUtils;
-import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.alipay.tushu.biz.managers.UserManager;
-import com.alipay.tushu.controller.converters.UserConverter;
 import com.alipay.tushu.controller.form.UserSigupForm;
+import com.alipay.tushu.core.converters.UserConverter;
 import com.alipay.tushu.core.model.User;
 import com.alipay.tushu.utils.URLConstants;
 
@@ -36,7 +35,6 @@ public class UserController {
 	/** 错误页面 */
 	private static final String ERROR_PAGE = "error.vm";
 
-	private HttpMessageConverter jsonConverter;
 
 	/**
 	 * @Description: 创建新用户
@@ -71,5 +69,4 @@ public class UserController {
 	public void setUserManager(UserManager userManager) {
 		this.userManager = userManager;
 	}
-
 }

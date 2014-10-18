@@ -30,27 +30,27 @@ public class CommonResp<T> {
 
 	}
 
-	CommonResp(boolean success) {
+	public CommonResp(boolean success) {
 		this.success = success;
 	}
 
-	CommonResp(boolean success, ErrorCode errorCode) {
+	public CommonResp(boolean success, ErrorCode errorCode) {
 		this.success = success;
 		this.errorCode = errorCode;
 	}
 
-	CommonResp(boolean success, ErrorCode errorCode, String resulMsg) {
+	public CommonResp(boolean success, ErrorCode errorCode, String resulMsg) {
 		this.success = success;
 		this.errorCode = errorCode;
 		this.resultMsg = resulMsg;
 	}
 
-	CommonResp(T target, boolean success) {
+	public CommonResp(T target, boolean success) {
 		this.target = target;
 		this.success = success;
 	}
 
-	CommonResp(T target, boolean success, String resultMsg) {
+	public CommonResp(T target, boolean success, String resultMsg) {
 		this.target = target;
 		this.success = success;
 		this.resultMsg = resultMsg;

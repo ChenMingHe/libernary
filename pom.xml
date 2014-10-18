@@ -81,6 +81,12 @@
 			<version>1.7.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.1.43</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>libernary</finalName>

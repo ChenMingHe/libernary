@@ -45,4 +45,15 @@
 		<property name="isolationLevelName" value="ISOLATION_DEFAULT" />
 		<property name="propagationBehaviorName" value="PROPAGATION_REQUIRED" />
 	</bean>
+	
+	
+	<bean id="handleTemplate"
+		class="com.alipay.tushu.utils.HandleTemplate">
+	</bean>
+	<bean id="jsonMessageConverter"
+		class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+		<property name="features" value="UseISO8601DateFormat"/>
+
+		<property name="charset" value="utf8"></property>
+	</bean>
 </beans>

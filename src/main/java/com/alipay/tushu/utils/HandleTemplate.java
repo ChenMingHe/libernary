@@ -21,7 +21,6 @@ import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.ui.ModelMap;
 
 import com.alipay.tushu.common.CommonResp;
-import com.alipay.tushu.common.ServiceError;
 
 /**
  * 统一处理模板
@@ -61,38 +60,31 @@ public class HandleTemplate {
 			logger.error("", e);
 			jsonResult = callback.onException(serviceResult, model);
 		} finally {
-			writeJsonResponse(request, response, jsonResult);
+			writeJsonResult(request, response, jsonResult);
 		}
 
 	}
 
-	/**
-	 * @Description: 写入转换结果
-	 * 
-	 * @param request
-	 * @param response
-	 * @param jsonResult
-	 * @throws
-	 */
-	private void writeJsonResponse(final HttpServletRequest request, final HttpServletResponse response,
-			Object jsonResult) {
-		Object responseBody = jsonResult;
-		ServerHttpResponse serverHttpResponse = new ServletServerHttpResponse(response);
-
-		// TODO 添加返回错误支持
-		if (!(jsonResult instanceof ServiceError)) {
-			serverHttpResponse.setStatusCode(HttpStatus.OK);
-		}
+	private void writeJsonResult(HttpServletRequest request, HttpServletResponse response, Object jsonResult) {
+		ServerHttpResponse servResponse = new ServletServerHttpResponse(response);
+		servResponse.setStatusCode(HttpStatus.OK);
 
 
-		// 回写数据
 		try {
-			jsonMessageConverter.write(responseBody,
+			System.out.println(jsonResult);
+			System.out.println(request.getCharacterEncoding());
+
+			if (request.getCharacterEncoding() == null) {
+				request.setCharacterEncoding("UTF-8");
+			}
+
+			jsonMessageConverter.write(jsonResult,
 					new MediaType("application", "json", Charset.forName(request.getCharacterEncoding())),
-					serverHttpResponse);
-		} catch (Exception e) {
-			logger.error("json serialize error !", e);
+					servResponse);
+		} catch (Throwable t) {
+			throw new RuntimeException("json seriaze error", t);
 		}
+
 	}
 
 	// ~~ getter & setter

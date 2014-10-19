@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -35,7 +35,7 @@ public class BookCategoryController extends BaseController {
 
 	@RequestMapping(value = URLConstants.CREATE, method = RequestMethod.POST)
 	public void create(HttpServletRequest request, HttpServletResponse response, ModelMap model,
-			final @ModelAttribute("bookCategoryDTO") BookCategoryDTO bookCategoryDTO) {
+			final @RequestBody BookCategoryDTO bookCategoryDTO) {
 		handleTemplate.process(request, response, model, new CallBackHandler() {
 
 			@Override

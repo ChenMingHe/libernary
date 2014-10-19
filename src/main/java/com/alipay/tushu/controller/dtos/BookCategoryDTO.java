@@ -9,7 +9,7 @@ package com.alipay.tushu.controller.dtos;
 import java.util.Date;
 
 /**
- * 
+ * 图书类目传输对象
  * 
  * @author yuanchen 2014年10月19日 下午9:18:14
  * @version

@@ -6,6 +6,7 @@
  */
 package com.alipay.tushu.controller;
 
+import com.alipay.tushu.biz.managers.BookCategoryManager;
 import com.alipay.tushu.biz.managers.BookManager;
 import com.alipay.tushu.biz.managers.UserManager;
 import com.alipay.tushu.utils.HandleTemplate;
@@ -18,10 +19,11 @@ import com.alipay.tushu.utils.HandleTemplate;
  */
 public class BaseController {
 	/** 统一处理模板 */
-	protected HandleTemplate	handleTemplate;
+	protected HandleTemplate		handleTemplate;
 
-	protected UserManager		userManager;
-	protected BookManager		bookManager;
+	protected UserManager			userManager;
+	protected BookManager			bookManager;
+	protected BookCategoryManager	bookCategoryManager;
 
 	// ~~ getter & setter
 	public void setHandleTemplate(HandleTemplate handleTemplate) {
@@ -34,6 +36,10 @@ public class BaseController {
 
 	public void setBookManager(BookManager bookManager) {
 		this.bookManager = bookManager;
+	}
+
+	public void setBookCategoryManager(BookCategoryManager bookCategoryManager) {
+		this.bookCategoryManager = bookCategoryManager;
 	}
 
 }

@@ -28,7 +28,6 @@ public class BaseManager {
 
 	protected BookCategoryService	bookCategoryService;
 
-
 	// ~~ getter & setter
 	public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
 		this.transactionTemplate = transactionTemplate;

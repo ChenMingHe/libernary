@@ -15,4 +15,7 @@
 	<bean id="userService"
 		class="com.alipay.tushu.core.services.impl.UserServiceImpl">
 	</bean>
+	<bean id="bookCategoryService"
+		class="com.alipay.tushu.core.services.impl.BookCategoryServiceImpl">
+	</bean>
 </beans>

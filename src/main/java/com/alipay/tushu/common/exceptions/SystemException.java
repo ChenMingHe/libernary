@@ -13,5 +13,10 @@ package com.alipay.tushu.common.exceptions;
  * @version
  */
 public class SystemException extends BaseException {
+	/**  */
+	private static final long	serialVersionUID	= -2704119793729132318L;
 
+	public SystemException(String s) {
+		super(s);
+	}
 }

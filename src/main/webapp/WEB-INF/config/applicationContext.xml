@@ -46,7 +46,7 @@
 		<property name="propagationBehaviorName" value="PROPAGATION_REQUIRED" />
 	</bean>
 	
-	
+	<!-- 统一处理模板 -->
 	<bean id="handleTemplate"
 		class="com.alipay.tushu.utils.HandleTemplate">
 	</bean>

@@ -5,6 +5,7 @@ package com.alipay.tushu.dal.dao.impl;
 
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
+import com.alipay.tushu.common.exceptions.SystemException;
 import com.alipay.tushu.dal.dao.UserDAO;
 import com.alipay.tushu.dal.dos.UserDO;
 
@@ -22,8 +23,7 @@ public class UserDAOImpl extends SqlMapClientDaoSupport implements UserDAO {
 	 */
 	public String create(UserDO user) {
 		if (user == null) {
-			throw new IllegalArgumentException(
-					"ERROR ## Can't not insert null value into db.");
+			throw new SystemException("ERROR ## Can't not insert null value into db.");
 		}
 
 		getSqlMapClientTemplate().insert("TS-USER-INSERT", user);

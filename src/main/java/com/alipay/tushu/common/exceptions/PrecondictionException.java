@@ -13,5 +13,10 @@ package com.alipay.tushu.common.exceptions;
  * @version
  */
 public class PrecondictionException extends BaseException {
+	/**  */
+	private static final long	serialVersionUID	= 5907880441569097862L;
 
+	public PrecondictionException(String s) {
+		super(s);
+	}
 }

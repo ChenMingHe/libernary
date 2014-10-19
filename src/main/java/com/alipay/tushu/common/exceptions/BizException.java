@@ -13,5 +13,10 @@ package com.alipay.tushu.common.exceptions;
  * @version
  */
 public class BizException extends BaseException {
+	/**  */
+	private static final long	serialVersionUID	= -6341870722380599725L;
 
+	public BizException(String s) {
+		super(s);
+	}
 }

@@ -8,6 +8,7 @@ package com.alipay.tushu.core.converters;
 
 import org.springframework.beans.BeanUtils;
 
+import com.alipay.tushu.controller.dtos.BookCategoryDTO;
 import com.alipay.tushu.core.model.BookCategory;
 import com.alipay.tushu.dal.dos.BookCategoryDO;
 
@@ -19,15 +20,29 @@ import com.alipay.tushu.dal.dos.BookCategoryDO;
  */
 public class BookCategoryConverter {
 
+	private static final String[]	IGNORE_PARAM	= new String[] { "parent" };
+
 	public static BookCategoryDO bo2do(BookCategory bookCategory) {
 		if (bookCategory == null) {
 			return null;
 		}
 
 		BookCategoryDO bookCategoryDO = new BookCategoryDO();
-		BeanUtils.copyProperties(bookCategory, bookCategoryDO);
+		BeanUtils.copyProperties(bookCategory, bookCategoryDO, IGNORE_PARAM);
 		bookCategoryDO.setParentId(bookCategory.getParent().getId());
 
 		return bookCategoryDO;
+	}
+
+	public static BookCategory dto2bo(BookCategoryDTO bookCategoryDTO) {
+		BookCategory bookCategory = new BookCategory();
+
+		BeanUtils.copyProperties(bookCategoryDTO, bookCategory, IGNORE_PARAM);
+
+		if (bookCategoryDTO.getParent() != null) {
+			bookCategory.setParent(dto2bo(bookCategoryDTO.getParent()));
+		}
+
+		return bookCategory;
 	}
 }

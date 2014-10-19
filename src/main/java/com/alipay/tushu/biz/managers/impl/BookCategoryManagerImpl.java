@@ -9,6 +9,7 @@ package com.alipay.tushu.biz.managers.impl;
 import com.alipay.tushu.biz.managers.BookCategoryManager;
 import com.alipay.tushu.common.resps.CommonResp;
 import com.alipay.tushu.core.model.BookCategory;
+import com.alipay.tushu.utils.Precondiction;
 
 /**
  * 
@@ -24,6 +25,8 @@ public class BookCategoryManagerImpl extends BaseManager implements BookCategory
 	 * .core.model.BookCategory)
 	 */
 	public CommonResp<String> create(BookCategory bookCategory) {
+		Precondiction.checkNotNull(bookCategory, BookCategory.class);
+
 		String result = bookCategoryService.create(bookCategory);
 		return new CommonResp<String>(result, true);
 	}

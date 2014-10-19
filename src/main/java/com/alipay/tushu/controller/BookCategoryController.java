@@ -11,10 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.alipay.tushu.common.resps.CommonResp;
+import com.alipay.tushu.controller.dtos.BookCategoryDTO;
+import com.alipay.tushu.core.converters.BookCategoryConverter;
+import com.alipay.tushu.core.model.BookCategory;
 import com.alipay.tushu.utils.CallBackHandler;
 import com.alipay.tushu.utils.URLConstants;
 
@@ -30,8 +34,16 @@ import com.alipay.tushu.utils.URLConstants;
 public class BookCategoryController extends BaseController {
 
 	@RequestMapping(value = URLConstants.CREATE, method = RequestMethod.POST)
-	public void create(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+	public void create(HttpServletRequest request, HttpServletResponse response, ModelMap model,
+			final @ModelAttribute("bookCategoryDTO") BookCategoryDTO bookCategoryDTO) {
+		handleTemplate.process(request, response, model, new CallBackHandler() {
 
+			@Override
+			public CommonResp<String> handle() throws Exception {
+				BookCategory bookCategory = BookCategoryConverter.dto2bo(bookCategoryDTO);
+				return bookCategoryManager.create(bookCategory);
+			}
+		});
 	}
 
 	@RequestMapping(value = "/{categoryId}", method = RequestMethod.DELETE)

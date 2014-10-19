@@ -15,11 +15,18 @@ import com.alipay.tushu.common.errors.ErrorCode;
  * @version
  */
 public class BaseException extends RuntimeException {
+	/**  */
+	private static final long	serialVersionUID	= 8264458521614803404L;
+
 	/** 错误码 */
 	private ErrorCode errorCode;
 
 	/** 结果信息 */
 	private String resultMsg;
+
+	public BaseException(String s) {
+		super(s);
+	}
 
 	// ~~ getter & setter
 	public ErrorCode getErrorCode() {

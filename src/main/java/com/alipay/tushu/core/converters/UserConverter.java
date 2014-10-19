@@ -16,17 +16,9 @@ import com.alipay.tushu.dal.dos.UserDO;
  */
 public class UserConverter {
 
-	/**
-	 * @Fields IGNORE_PARAM : 忽略拷贝参数
-	 */
 	private static final String[] IGNORE_PARAM = new String[] { "type" };
 
-	/**
-	 * 将BO对象转换成DO对象
-	 * 
-	 * @param user
-	 * @return
-	 */
+
 	public static UserDO convertBO2DO(User user) {
 		if (user == null) {
 			return null;
@@ -43,13 +35,6 @@ public class UserConverter {
 		return userDO;
 	}
 
-	/**
-	 * @Description: Form -》 BO
-	 * 
-	 * @param form
-	 * @return
-	 * @throws
-	 */
 	public static User convertForm2BO(UserSigupForm form) {
 		if (form == null) {
 			return null;

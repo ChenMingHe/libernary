@@ -1,34 +1,35 @@
 /**
  * @Project : libernary
- * @Package : com.alipay.tushu.dal.dos
- * @date 2014年10月18日 下午7:37:23
+ * @Package : com.alipay.tushu.core.model
+ * @date 2014年10月18日 下午11:38:36
  * Copyright (c) 2014, uestc All Rights Reserved. version V1.0
  */
-package com.alipay.tushu.dal.dos;
+package com.alipay.tushu.core.model;
 
 import java.util.Date;
 
+import com.alipay.tushu.core.model.enums.BookItemStatusEnum;
+
 /**
- * 图书实例
  * 
- * @author yuanchen 2014年10月18日 下午7:37:23
+ * 
+ * @author yuanchen 2014年10月18日 下午11:38:36
  * @version
  */
-public class BookItemDO {
-	private String	id;
-	private String	userId;
-	private String	bookId;
-	private String	libernaryId;
-	private String	status;
-	private Date	borrowDeadline;
-	private String	floor;
-	private String	bookselfNo;
-	private String	bookselfRaw;
-	private String	bookselfCloumn;
-	private Date	gmtCreate;
-	private Date	gmtModified;
+public class BookItem {
+	private String id;
+	private User user;
+	private Book book;
+	private Libernary libernary;
+	private BookItemStatusEnum status;
+	private Date borrowDeadline;
+	private String floor;
+	private String bookselfNo;
+	private String bookselfRaw;
+	private String bookselfCloumn;
+	private Date gmtCreate;
+	private Date gmtModified;
 
-	// ~~ getter & setter
 	public String getId() {
 		return id;
 	}
@@ -37,35 +38,35 @@ public class BookItemDO {
 		this.id = id;
 	}
 
-	public String getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public String getBookId() {
-		return bookId;
+	public Book getBook() {
+		return book;
 	}
 
-	public void setBookId(String bookId) {
-		this.bookId = bookId;
+	public void setBook(Book book) {
+		this.book = book;
 	}
 
-	public String getLibernaryId() {
-		return libernaryId;
+	public Libernary getLibernary() {
+		return libernary;
 	}
 
-	public void setLibernaryId(String libernaryId) {
-		this.libernaryId = libernaryId;
+	public void setLibernary(Libernary libernary) {
+		this.libernary = libernary;
 	}
 
-	public String getStatus() {
+	public BookItemStatusEnum getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(BookItemStatusEnum status) {
 		this.status = status;
 	}
 

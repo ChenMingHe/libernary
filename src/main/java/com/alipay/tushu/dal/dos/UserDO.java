@@ -13,24 +13,24 @@ import java.util.Date;
  */
 public class UserDO {
 	/** 用户ID */
-	private String id;
-	private String libernaryId;
+	private String	id;
+	private String	libernaryId;
 	/** 登录名 */
-	private String loginName;
+	private String	loginName;
 	/** 密钥 */
-	private String password;
-	private String realName;
+	private String	password;
+	private String	realName;
 	/** 昵称 */
-	private String nickName;
+	private String	nickName;
 	/** 类型 */
-	private String type;
-	private String status;
-	private String mobile;
-	private String email;
+	private String	type;
+	private String	status;
+	private String	mobile;
+	private String	email;
 	/** 创建时间 */
-	private Date gmtCreate;
+	private Date	gmtCreate;
 	/** 修改时间 */
-	private Date gmtModified;
+	private Date	gmtModified;
 
 	// ~~ getter & setter
 	public String getId() {

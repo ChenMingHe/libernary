@@ -6,7 +6,6 @@
  */
 package com.alipay.tushu.core.services.impl;
 
-
 import java.util.Date;
 
 import com.alipay.tushu.core.services.SequenceService;
@@ -28,24 +27,24 @@ import com.alipay.tushu.dal.dao.UserInterestGroupDAO;
  */
 public class BaseService {
 	/** 序列化服务 */
-	private SequenceService sequenceService;
+	private SequenceService			sequenceService;
 
 	/**  */
-	protected BookCategoryDAO bookCategoryDAO;
+	protected BookCategoryDAO		bookCategoryDAO;
 	/**  */
-	protected BookDAO bookDAO;
+	protected BookDAO				bookDAO;
 	/**  */
-	protected BookItemDAO bookItemDAO;
+	protected BookItemDAO			bookItemDAO;
 	/**  */
-	protected BookOrderDAO bookOrderDAO;
+	protected BookOrderDAO			bookOrderDAO;
 	/**  */
-	protected BookStoreDAO bookStoreDAO;
+	protected BookStoreDAO			bookStoreDAO;
 	/**  */
-	protected InterestGroupDAO interestGroupDAO;
+	protected InterestGroupDAO		interestGroupDAO;
 	/**  */
-	protected LibernaryDAO libernaryDAO;
+	protected LibernaryDAO			libernaryDAO;
 	/**  */
-	protected UserInterestGroupDAO userInterestGroupDAO;
+	protected UserInterestGroupDAO	userInterestGroupDAO;
 
 	/**
 	 * @Description: 获取当前时间

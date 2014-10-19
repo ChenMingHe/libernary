@@ -10,37 +10,37 @@ import java.util.Date;
  */
 public class BookDO {
 	/**  */
-	private String id;
+	private String	id;
 	/**  */
-	private String bookSearchNo;
+	private String	bookSearchNo;
 	/**  */
-	private String bookTypeId;
+	private String	bookTypeId;
 	/**  */
-	private String leftCount;
+	private String	leftCount;
 	/**  */
-	private String orderCount;
+	private String	orderCount;
 	/**  */
-	private String borrowCount;
+	private String	borrowCount;
 	/**  */
-	private String borrowTotalCount;
+	private String	borrowTotalCount;
 	/**  */
-	private String status;
+	private String	status;
 	/**  */
-	private String chineseName;
+	private String	chineseName;
 	/**  */
-	private String name;
+	private String	name;
 	/**  */
-	private String author;
+	private String	author;
 	/**  */
-	private String publisher;
+	private String	publisher;
 	/**  */
-	private String publisherNo;
+	private String	publisherNo;
 	/**  */
-	private Date publisherDate;
+	private Date	publisherDate;
 	/**  */
-	private Date gmtCreate;
+	private Date	gmtCreate;
 	/**  */
-	private Date gmtModified;
+	private Date	gmtModified;
 
 	// ~~ getter & setter
 	public String getId() {

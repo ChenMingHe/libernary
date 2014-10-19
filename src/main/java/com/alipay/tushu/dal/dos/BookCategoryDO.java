@@ -17,15 +17,15 @@ import java.util.Date;
 public class BookCategoryDO {
 
 	/**  */
-	private String id;
+	private String	id;
 	/**  */
-	private String parentId;
+	private String	parentId;
 	/**  */
-	private String name;
+	private String	name;
 	/**  */
-	private Date gmtCreate;
+	private Date	gmtCreate;
 	/**  */
-	private Date gmtModified;
+	private Date	gmtModified;
 
 	// ~~ getter & setter
 	public String getId() {

@@ -18,10 +18,10 @@ import com.alipay.tushu.utils.HandleTemplate;
  */
 public class BaseController {
 	/** 统一处理模板 */
-	protected HandleTemplate handleTemplate;
+	protected HandleTemplate	handleTemplate;
 
-	protected UserManager userManager;
-	protected BookManager bookManager;
+	protected UserManager		userManager;
+	protected BookManager		bookManager;
 
 	// ~~ getter & setter
 	public void setHandleTemplate(HandleTemplate handleTemplate) {

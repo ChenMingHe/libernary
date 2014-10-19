@@ -14,9 +14,9 @@ package com.alipay.tushu.dal.dos;
  */
 public class SequenceDO {
 	/** 表名 */
-	private String tbName;
+	private String	tbName;
 	/** 键值ID */
-	private int id;
+	private int		id;
 
 	// ~~ getter & setter
 	public String getTbName() {

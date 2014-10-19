@@ -14,7 +14,7 @@
 	<context:component-scan base-package="com.alipay.tushu.controller"></context:component-scan>
 	<!-- 静态资源 -->
 	<mvc:resources location="/resources/" mapping="/resources/**" />
-	<!-- 视图解析 -->
+	<!-- 视图解析-目前不使用 -->
 	<bean id="viewReslover"
 		class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
 		<property name="contentType">

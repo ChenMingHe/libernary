@@ -73,9 +73,6 @@ public class HandleTemplate {
 
 
 		try {
-			System.out.println(jsonResult);
-			System.out.println(request.getCharacterEncoding());
-
 			if (request.getCharacterEncoding() == null) {
 				request.setCharacterEncoding("UTF-8");
 			}

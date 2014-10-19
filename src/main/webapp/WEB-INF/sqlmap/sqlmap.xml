@@ -9,7 +9,13 @@ sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibat
 
 	<!-- sqlmap list -->
 	<sqlMap resource="/book-sqlmap.xml" />
-	<sqlMap resource="/user-sqlmap.xml" />
+	<sqlMap resource="/bookCategory-sqlmap.xml" />
+	<sqlMap resource="/bookOrder-sqlmap.xml" />
+	<sqlMap resource="/bookStore-sqlmap.xml" />
+	<sqlMap resource="/interestGroup-sqlmap.xml" />
+	<sqlMap resource="/libernary-sqlmap.xml" />
 	<sqlMap resource="/sequence-sqlmap.xml" />
+	<sqlMap resource="/user-sqlmap.xml" />
+	<sqlMap resource="/userInterestGroup-sqlmap.xml" />
 
 </sqlMapConfig>

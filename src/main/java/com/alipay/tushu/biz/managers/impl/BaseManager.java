@@ -8,7 +8,7 @@ package com.alipay.tushu.biz.managers.impl;
 
 import org.springframework.transaction.support.TransactionTemplate;
 
-import com.alipay.tushu.biz.managers.BookCategoryManager;
+import com.alipay.tushu.core.services.BookCategoryService;
 import com.alipay.tushu.core.services.BookService;
 import com.alipay.tushu.core.services.UserService;
 
@@ -26,7 +26,8 @@ public class BaseManager {
 
 	protected UserService			userService;
 
-	protected BookCategoryManager	bookCategoryManager;
+	protected BookCategoryService	bookCategoryService;
+
 
 	// ~~ getter & setter
 	public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
@@ -39,6 +40,10 @@ public class BaseManager {
 
 	public void setUserService(UserService userService) {
 		this.userService = userService;
+	}
+
+	public void setBookCategoryService(BookCategoryService bookCategoryService) {
+		this.bookCategoryService = bookCategoryService;
 	}
 
 }

@@ -16,16 +16,19 @@ import com.alipay.tushu.common.errors.ErrorCode;
  */
 public class CommonResp<T> {
 	/** 是否成功 */
-	private boolean success = false;
+	private boolean		success	= false;
 
 	/** 错误码 */
-	private ErrorCode errorCode;
+	private ErrorCode	errorCode;
 
 	/** 结果信息 */
-	private String resultMsg;
+	private String		resultMsg;
+
+	/** 场景 */
+	private String		scene;
 
 	/** 返回对象 */
-	private T target;
+	private T			target;
 
 	// ~~ Constructer
 	CommonResp() {
@@ -89,6 +92,14 @@ public class CommonResp<T> {
 
 	public void setTarget(T target) {
 		this.target = target;
+	}
+
+	public String getScene() {
+		return scene;
+	}
+
+	public void setScene(String scene) {
+		this.scene = scene;
 	}
 
 }

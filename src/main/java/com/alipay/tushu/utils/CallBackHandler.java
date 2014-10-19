@@ -63,6 +63,7 @@ public abstract class CallBackHandler {
 	 * @throws
 	 */
 	public <T> Object onFailed(CommonResp<T> result, ModelMap model) throws Exception {
+		// TODO:添加错误文案
 		return null;
 	}
 

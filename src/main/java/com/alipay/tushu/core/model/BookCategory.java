@@ -15,11 +15,11 @@ import java.util.Date;
  * @version
  */
 public class BookCategory {
-	private String id;
-	private BookCategory parent;
-	private String name;
-	private Date gmtCreate;
-	private Date gmtModified;
+	private String			id;
+	private BookCategory	parent;
+	private String			name;
+	private Date			gmtCreate;
+	private Date			gmtModified;
 
 	public String getId() {
 		return id;

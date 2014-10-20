@@ -21,7 +21,6 @@ import com.alipay.tushu.common.resps.PaginationResp;
  */
 public abstract class CallBackHandler {
 
-
 	/**
 	 * @Description: 处理函数
 	 * 
@@ -45,13 +44,13 @@ public abstract class CallBackHandler {
 		if (result instanceof PaginationResp) {
 			PaginationResp<T> paginationResp = (PaginationResp<T>) result;
 			data = paginationResp.getList() == null ? paginationResp.getResultMsg() : getPaginationData(paginationResp);
-		} else {
+		} else if (result instanceof CommonResp) {
 			data = result.getTarget() == null ? result.getResultMsg() : result.getTarget();
+		} else {
+			data = result;
 		}
 		return data;
 	}
-
-
 
 	/**
 	 * @Description: 处理失败逻辑
@@ -63,20 +62,20 @@ public abstract class CallBackHandler {
 	 * @throws
 	 */
 	public <T> Object onFailed(CommonResp<T> result, ModelMap model) throws Exception {
-		// TODO:添加错误文案
-		return null;
+
+		return "failed";
 	}
 
 	public <T> Object onException(CommonResp<T> result, ModelMap model) {
-		return null;
+		return "expection";
 	}
 
 	class PaginationData<T> {
-		private final int startIndex;
-		private final int pageSize;
-		private final int totalSize;
-		private final int currentPage;
-		private final List<T> list;
+		private final int		startIndex;
+		private final int		pageSize;
+		private final int		totalSize;
+		private final int		currentPage;
+		private final List<T>	list;
 
 		PaginationData(int startIndex, int pageSize, int totalSize, int currentPage, List<T> list) {
 			this.startIndex = startIndex;

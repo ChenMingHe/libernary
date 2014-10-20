@@ -6,6 +6,8 @@
  */
 package com.alipay.tushu.common.exceptions;
 
+import com.alipay.tushu.common.errors.ErrorCode;
+
 /**
  * 系统执行异常
  * 
@@ -13,10 +15,25 @@ package com.alipay.tushu.common.exceptions;
  * @version
  */
 public class SystemException extends BaseException {
-	/**  */
 	private static final long	serialVersionUID	= -2704119793729132318L;
 
-	public SystemException(String s) {
-		super(s);
+	public SystemException() {
+		super();
+	}
+
+	public SystemException(String message) {
+		super(message);
+	}
+
+	public SystemException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	public SystemException(ErrorCode errorCode, Throwable cause) {
+		super(errorCode, cause);
+	}
+
+	public SystemException(ErrorCode errorCode, String message, Throwable cause) {
+		super(errorCode, message, cause);
 	}
 }

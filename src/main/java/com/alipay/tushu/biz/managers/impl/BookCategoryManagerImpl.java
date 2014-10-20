@@ -26,7 +26,6 @@ public class BookCategoryManagerImpl extends BaseManager implements BookCategory
 	 */
 	public CommonResp<String> create(BookCategory bookCategory) {
 		Precondiction.checkNotNull(bookCategory, BookCategory.class);
-
 		String result = bookCategoryService.create(bookCategory);
 		return new CommonResp<String>(result, true);
 	}

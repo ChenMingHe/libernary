@@ -29,7 +29,9 @@ public class BookCategoryConverter {
 
 		BookCategoryDO bookCategoryDO = new BookCategoryDO();
 		BeanUtils.copyProperties(bookCategory, bookCategoryDO, IGNORE_PARAM);
-		bookCategoryDO.setParentId(bookCategory.getParent().getId());
+		if (bookCategory.getParent() != null) {
+			bookCategoryDO.setParentId(bookCategory.getParent().getId());
+		}
 
 		return bookCategoryDO;
 	}

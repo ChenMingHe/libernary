@@ -10,13 +10,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 
+ * 缓存
  * 
  * @author yuanchen 2014年10月19日 下午7:19:12
  * @version
  */
-public class ErrorDesc {
-	/** 存放错误文案 */
+public class ErrorDescCache {
+	/** 错误文案缓存 */
 	private final static Map<String, String>	errorDesc	= new HashMap<String, String>();
 
 	/**
@@ -27,7 +27,7 @@ public class ErrorDesc {
 	}
 
 
-		/**
+	/**
 	 * @Description: 获取文案
 	 * 
 	 * @param scene
@@ -36,9 +36,20 @@ public class ErrorDesc {
 	 * @throws
 	 */
 	public static String getErrorDesc(String scene, ErrorCode code) {
+		String resultMsg = null;
+		if (scene == null || code == null) {
+			resultMsg = "Error Desc not found.";
+		}
+
 		StringBuilder key = new StringBuilder();
-		key.append(scene).append(code.name());
-		return errorDesc.get(key);
+		key.append(scene).append('|').append(code.name());
+
+		resultMsg = errorDesc.get(key);
+		if (resultMsg == null) {
+			resultMsg = code.getDesc();
+		}
+
+		return resultMsg;
 	}
 
 	/**

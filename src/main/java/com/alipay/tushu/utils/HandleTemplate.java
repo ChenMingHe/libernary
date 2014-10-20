@@ -20,7 +20,6 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.ui.ModelMap;
 
-import com.alipay.tushu.common.exceptions.BaseException;
 import com.alipay.tushu.common.resps.CommonResp;
 
 /**
@@ -32,10 +31,10 @@ import com.alipay.tushu.common.resps.CommonResp;
 public class HandleTemplate {
 
 	/** 日志 */
-	private final static Logger logger = LoggerFactory.getLogger(HandleTemplate.class);
+	private final static Logger				logger	= LoggerFactory.getLogger(HandleTemplate.class);
 
 	/** JSON转换处理 */
-	private HttpMessageConverter<Object> jsonMessageConverter;
+	private HttpMessageConverter<Object>	jsonMessageConverter;
 
 	/**
 	 * @Description:
@@ -57,9 +56,8 @@ public class HandleTemplate {
 			} else {
 				jsonResult = callback.onFailed(serviceResult, model);
 			}
-		} catch (BaseException e) {
-			// TODO
 		} catch (Throwable e) {
+			logger.error("System Expection ", e);
 			jsonResult = callback.onException(serviceResult, model);
 		} finally {
 			writeJsonResult(request, response, jsonResult);
@@ -71,13 +69,15 @@ public class HandleTemplate {
 		ServerHttpResponse servResponse = new ServletServerHttpResponse(response);
 		servResponse.setStatusCode(HttpStatus.OK);
 
-
 		try {
 			if (request.getCharacterEncoding() == null) {
 				request.setCharacterEncoding("UTF-8");
 			}
 
-			jsonMessageConverter.write(jsonResult,
+			// TODO 返回状态码需要进行设计
+
+			jsonMessageConverter
+			.write(jsonResult,
 					new MediaType("application", "json", Charset.forName(request.getCharacterEncoding())),
 					servResponse);
 		} catch (Throwable t) {

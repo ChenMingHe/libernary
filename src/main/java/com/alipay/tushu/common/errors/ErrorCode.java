@@ -18,6 +18,7 @@ public enum ErrorCode {
 	PARAM_CHECK_ERROR("参数校验错误"),
 	BIZ_ERROR("业务处理异常"),
 	SYSTEM_ERROR("系统处理异常"),
+	SYSTEM_UNKNOW_ERROR("系统未知异常"),
 	RESOURCE_NOT_FOUND("资源不存在"),
 	;
 	/** 错误描述 */

@@ -36,9 +36,8 @@ public class BookCategoryController extends BaseController {
 	@RequestMapping(value = URLConstants.CREATE, method = RequestMethod.POST)
 	public void create(HttpServletRequest request, HttpServletResponse response, ModelMap model,
 			final @RequestBody BookCategoryDTO bookCategoryDTO) {
-		System.out.println(bookCategoryDTO.getName());
-		handleTemplate.process(request, response, model, new CallBackHandler() {
 
+		handleTemplate.process(request, response, model, new CallBackHandler() {
 			@Override
 			public CommonResp<String> handle() throws Exception {
 				BookCategory bookCategory = BookCategoryConverter.dto2bo(bookCategoryDTO);

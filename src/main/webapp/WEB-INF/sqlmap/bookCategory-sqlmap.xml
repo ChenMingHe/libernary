@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE 
 sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
-<sqlMap >
-	<insert id = "TS-BOOK-CATEGORY-INSERT">
+<sqlMap>
+	<insert id="TS-BOOK-CATEGORY-INSERT">
+		insert into book_category(id, parent_id, name, gmt_create, gmt_modified)
+		values(#id#, #parentId#, #name#, #gmtCreate#, #gmtModified#);
 	</insert>
-	
+
 	<delete id="TS-BOOK-CATEGORY-DELETE-BY-ID">
 		delete from book_category where id = #id#
 	</delete>

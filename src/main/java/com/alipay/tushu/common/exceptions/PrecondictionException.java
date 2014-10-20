@@ -6,6 +6,8 @@
  */
 package com.alipay.tushu.common.exceptions;
 
+import com.alipay.tushu.common.errors.ErrorCode;
+
 /**
  * 前置校验异常
  * 
@@ -13,10 +15,25 @@ package com.alipay.tushu.common.exceptions;
  * @version
  */
 public class PrecondictionException extends BaseException {
-	/**  */
 	private static final long	serialVersionUID	= 5907880441569097862L;
 
-	public PrecondictionException(String s) {
-		super(s);
+	public PrecondictionException() {
+		super();
+	}
+
+	public PrecondictionException(String message) {
+		super(message);
+	}
+
+	public PrecondictionException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	public PrecondictionException(ErrorCode errorCode, Throwable cause) {
+		super(errorCode, cause);
+	}
+
+	public PrecondictionException(ErrorCode errorCode, String message, Throwable cause) {
+		super(errorCode, message, cause);
 	}
 }

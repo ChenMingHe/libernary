@@ -36,6 +36,7 @@ public class BookCategoryServiceImpl extends BaseService implements BookCategory
 		bookCategoryDO.setGmtCreate(currentTime);
 		bookCategoryDO.setGmtModified(currentTime);
 
+
 		bookCategoryDAO.create(bookCategoryDO);
 		return bookCategoryId;
 	}

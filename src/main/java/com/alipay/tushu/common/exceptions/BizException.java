@@ -6,6 +6,8 @@
  */
 package com.alipay.tushu.common.exceptions;
 
+import com.alipay.tushu.common.errors.ErrorCode;
+
 /**
  * 业务执行异常
  * 
@@ -13,10 +15,17 @@ package com.alipay.tushu.common.exceptions;
  * @version
  */
 public class BizException extends BaseException {
-	/**  */
 	private static final long	serialVersionUID	= -6341870722380599725L;
 
-	public BizException(String s) {
-		super(s);
+	public BizException() {
+		super();
+	}
+
+	public BizException(ErrorCode errorCode, Throwable cause) {
+		super(errorCode, cause);
+	}
+
+	public BizException(ErrorCode errorCode, String message, Throwable cause) {
+		super(errorCode, message, cause);
 	}
 }

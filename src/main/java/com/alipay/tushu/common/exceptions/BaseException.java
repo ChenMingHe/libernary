@@ -19,13 +19,38 @@ public class BaseException extends RuntimeException {
 	private static final long	serialVersionUID	= 8264458521614803404L;
 
 	/** 错误码 */
-	private ErrorCode errorCode;
+	private ErrorCode			errorCode;
 
-	/** 结果信息 */
-	private String resultMsg;
 
-	public BaseException(String s) {
-		super(s);
+	// ~~ Constructer
+	public BaseException() {
+		super();
+	}
+
+	public BaseException(String message) {
+		super(message);
+	}
+
+	public BaseException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	public BaseException(ErrorCode errorCode, Throwable cause) {
+		super(cause);
+		this.errorCode = errorCode;
+	}
+
+	public BaseException(ErrorCode errorCode, String message, Throwable cause) {
+		super(message, cause);
+		this.errorCode = errorCode;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("{ \nErrorCode : [ ").append(errorCode.name()).append(", ").append(errorCode.getDesc())
+		.append("]. \n").append(super.toString()).append("\n };");
+		return sb.toString();
 	}
 
 	// ~~ getter & setter
@@ -35,14 +60,6 @@ public class BaseException extends RuntimeException {
 
 	public void setErrorCode(ErrorCode errorCode) {
 		this.errorCode = errorCode;
-	}
-
-	public String getResultMsg() {
-		return resultMsg;
-	}
-
-	public void setResultMsg(String resultMsg) {
-		this.resultMsg = resultMsg;
 	}
 
 }

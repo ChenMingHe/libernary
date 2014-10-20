@@ -30,7 +30,7 @@ public class BookCategoryDAOImpl extends SqlMapClientDaoSupport implements BookC
 			throw new SystemException("ERROR ## Can't not insert null value into db.");
 		}
 
-		getSqlMapClientTemplate().insert("TS-BOOK-CATEGORY-DELETE-BY-ID", bookCategoryDO);
+		getSqlMapClientTemplate().insert("TS-BOOK-CATEGORY-INSERT", bookCategoryDO);
 		return bookCategoryDO.getId();
 	}
 

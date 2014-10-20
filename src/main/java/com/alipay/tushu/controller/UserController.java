@@ -12,11 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.alipay.tushu.common.resps.CommonResp;
 import com.alipay.tushu.controller.form.UserSigupForm;
-import com.alipay.tushu.core.converters.UserConverter;
-import com.alipay.tushu.core.model.User;
-import com.alipay.tushu.utils.CallBackHandler;
 import com.alipay.tushu.utils.URLConstants;
 
 /**
@@ -41,15 +37,7 @@ public class UserController extends BaseController {
 	@RequestMapping(value = URLConstants.CREATE, method = RequestMethod.POST)
 	public void create(ModelMap model, HttpServletRequest request, HttpServletResponse response,
 			final @ModelAttribute("form") UserSigupForm form) {
-
-		handleTemplate.process(request, response, model, new CallBackHandler() {
-			@Override
-			public CommonResp<String> handle() throws Exception {
-				User user = UserConverter.convertForm2BO(form);
-				String result = userManager.createUser(user);
-				return new CommonResp<String>(result, true);
-			}
-		});
 	}
+
 
 }

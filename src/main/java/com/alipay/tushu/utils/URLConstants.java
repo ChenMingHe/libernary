@@ -24,7 +24,7 @@ public class URLConstants {
 	/** 图书类目资源 */
 	public final static String			BOOK_CATEGORY	= "/book_categorys";
 
-	public final static String			CREATE			= "/create";
+	public final static String			CREATE			= "";
 	public final static RequestMethod	CREATE_METHOD	= RequestMethod.POST;
 
 	public final static String			LIST			= "";

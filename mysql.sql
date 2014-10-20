@@ -165,7 +165,7 @@ create table if not exists book_store (
 alter table book_store comment '记录用户收藏图书关系';
 
 # 图书借阅关系
-create table if not exists book_order (
+create table if not exists book_borrow (
   id varchar(30) primary key comment '主键',
   user_id varchar(30) not null comment '用户ID',
   book_item_id varchar(30) not null comment '借阅图书ID',
@@ -178,7 +178,23 @@ create table if not exists book_order (
     references book_item(id)  
 ) engine = InnoDB default charset = utf8;
 
-alter table book_order comment '图书借阅关系';
+alter table book_borrow comment '图书借阅关系';
+
+# 图书预约关系
+create table if not exists book_order (
+  id varchar(30) primary key comment '主键',
+  user_id varchar(30) not null comment '用户ID',
+  book_id varchar(30) not null comment '预约图书ID',
+  gmt_create datetime not null comment '创建时间',
+  gmt_modified datetime comment '修改时间',
+
+  foreign key(user_id)
+    references user(id),
+  foreign key(book_id)
+    references book(id)  
+) engine = InnoDB default charset = utf8;
+
+alter table book_order comment '图书预约关系';
 
 # seeding data
 insert into libernary(id, name, gmt_create, gmt_modified) values("0000000004", "uestc", now(), now());

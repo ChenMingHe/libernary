@@ -41,7 +41,10 @@ public class CommonManagerInterceptor implements MethodInterceptor {
 	public <T> Object doInvoke(MethodInvocation invocation) {
 		// 统一异常处理，日志，参数检查
 		try {
+			return invocation.proceed();
 		} catch (PrecondictionException e) {
+			logger.error("Precondiction Error", e);
+			return new CommonResp<T>(false, e.getErrorCode(), e.getMessage());
 		} catch (BizException e) {
 			String errorDesc = getErrorDesc(e.getErrorCode(), invocation.getMethod().getName());
 
@@ -65,7 +68,6 @@ public class CommonManagerInterceptor implements MethodInterceptor {
 
 			return new CommonResp<T>(false, ErrorCode.SYSTEM_UNKNOW_ERROR, ErrorCode.SYSTEM_UNKNOW_ERROR.getDesc());
 		}
-		return null;
 	}
 
 	/**
